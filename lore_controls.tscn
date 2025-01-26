@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=3 uid="uid://cc82ah4ykw5s2"]
+
+[ext_resource type="Texture2D" uid="uid://5qs36sdwdljh" path="res://art/taust.png" id="1_fqcdb"]
+[ext_resource type="Script" path="res://back.gd" id="2_7xifw"]
+[ext_resource type="Texture2D" uid="uid://nadimckpnnh4" path="res://art/Play_button_new.png" id="2_khauv"]
+[ext_resource type="Texture2D" uid="uid://d3tlby31chjna" path="res://art/back_button.png" id="2_rk660"]
+[ext_resource type="Script" path="res://button.gd" id="3_st1ma"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h8oxy"]
+texture = ExtResource("1_fqcdb")
+
+[node name="lore_controls" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1600.0
+offset_bottom = 900.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_h8oxy")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 72.0
+offset_right = 962.0
+offset_bottom = 355.0
+scale = Vector2(1.7, 1.7)
+text = "This game is about a piece of land upheld by the Great Bubble that keeps all it's citizens protected in the middle of the woods. Unfortunately the creatures of the forest are not too keen on the people of the Great Bubble existing in the middle of their woods and will try their best to take down the Great Bubble lord. You are playing as a brave Bubble Gnome Warrior, who has vowed to keep the Great Bubble safe at any cost together with other gnomes of the cult. Deploy turrets, which are manned by your gnome comrades, and stop the denizens of the forest from getting to the Great Bubble. 
+
+Instructions:
+WASD and ARROWS to move
+B to build turrets
+ENTER to start the next wave"
+autowrap_mode = 2
+
+[node name="back" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 640.0
+offset_right = 456.0
+offset_bottom = 680.0
+scale = Vector2(1.2, 1.2)
+icon = ExtResource("2_rk660")
+script = ExtResource("2_7xifw")
+
+[node name="play" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 1152.0
+offset_top = 640.0
+offset_right = 1677.0
+offset_bottom = 779.0
+scale = Vector2(0.33, 0.33)
+icon = ExtResource("2_khauv")
+script = ExtResource("3_st1ma")
+
+[connection signal="pressed" from="Panel/back" to="Panel/back" method="_on_pressed"]
+[connection signal="pressed" from="Panel/play" to="Panel/play" method="_on_pressed"]

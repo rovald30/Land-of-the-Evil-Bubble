@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://bkpkd2aiax5ns"]
+
+[ext_resource type="Texture2D" uid="uid://dafi0m51ot3v" path="res://art/tower.png" id="1_004t0"]
+[ext_resource type="Script" path="res://tower.gd" id="1_gtxxb"]
+[ext_resource type="PackedScene" uid="uid://ticsrl81tkpe" path="res://projectile.tscn" id="2_0nas1"]
+[ext_resource type="AudioStream" uid="uid://drvpvaqs35uqn" path="res://art/shot sniper.mp3" id="4_32lry"]
+[ext_resource type="AudioStream" uid="uid://ggri07y2ubae" path="res://art/build sound.mp3" id="5_xsyjh"]
+[ext_resource type="AudioStream" uid="uid://csvgxw3noaelg" path="res://art/goblin death.mp3" id="6_2xxtn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eha65"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_004t0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ryku"]
+size = Vector2(62, 68)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a8l3m"]
+bg_color = Color(0.769971, 0.194323, 0.0628934, 1)
+
+[node name="Tower" type="Area2D" groups=["Tower"]]
+script = ExtResource("1_gtxxb")
+projectile_scene = ExtResource("2_0nas1")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_eha65")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 28)
+shape = SubResource("RectangleShape2D_6ryku")
+
+[node name="ShootingCooldown" type="Timer" parent="."]
+wait_time = 1.5
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer"]
+offset_right = 4.0
+offset_bottom = 60.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_a8l3m")
+fill_mode = 3
+show_percentage = false
+
+[node name="Shot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_32lry")
+volume_db = -10.0
+
+[node name="BuildSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_xsyjh")
+volume_db = 10.0
+
+[node name="MobDeath" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_2xxtn")
+volume_db = 10.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="ShootingCooldown" to="." method="_on_shooting_cooldown_timeout"]

@@ -1,0 +1,76 @@
+[gd_scene load_steps=12 format=3 uid="uid://bd0egtl1mk06s"]
+
+[ext_resource type="Texture2D" uid="uid://deatlbmwt7ye0" path="res://art/tausttrterte.png" id="1_wy77u"]
+[ext_resource type="Script" path="res://button.gd" id="2_1gb2t"]
+[ext_resource type="Texture2D" uid="uid://nadimckpnnh4" path="res://art/Play_button_new.png" id="2_qgady"]
+[ext_resource type="Texture2D" uid="uid://c7qlk4la0icls" path="res://art/Loteb_opening_thing.png" id="2_roa11"]
+[ext_resource type="Script" path="res://lore_controls.gd" id="5_s0nhx"]
+[ext_resource type="Texture2D" uid="uid://bayvrjslh2d8x" path="res://art/lore_button.png" id="5_txo25"]
+[ext_resource type="Texture2D" uid="uid://c15bgibav16rq" path="res://art/Exit_button.png" id="6_70owo"]
+[ext_resource type="Script" path="res://button_2.gd" id="7_j40y0"]
+
+[sub_resource type="Theme" id="Theme_20bjh"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fqsj7"]
+texture = ExtResource("1_wy77u")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bp5ly"]
+texture = ExtResource("2_roa11")
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_20bjh")
+
+[node name="background" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1600.0
+offset_bottom = 900.0
+scale = Vector2(1.007, 1)
+theme_override_styles/panel = SubResource("StyleBoxTexture_fqsj7")
+
+[node name="gamename" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 472.0
+offset_top = 120.0
+offset_right = 1184.0
+offset_bottom = 270.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_bp5ly")
+
+[node name="playbutton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 632.0
+offset_top = 344.0
+offset_right = 1157.0
+offset_bottom = 483.0
+scale = Vector2(0.75, 0.75)
+icon = ExtResource("2_qgady")
+script = ExtResource("2_1gb2t")
+
+[node name="lore_controls" type="Button" parent="."]
+layout_mode = 0
+offset_left = 720.0
+offset_top = 504.0
+offset_right = 856.0
+offset_bottom = 544.0
+scale = Vector2(1.6, 1.6)
+icon = ExtResource("5_txo25")
+script = ExtResource("5_s0nhx")
+
+[node name="exit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 752.0
+offset_top = 648.0
+offset_right = 860.0
+offset_bottom = 688.0
+scale = Vector2(1.5, 1.5)
+icon = ExtResource("6_70owo")
+script = ExtResource("7_j40y0")
+
+[connection signal="pressed" from="playbutton" to="playbutton" method="_on_pressed"]
+[connection signal="pressed" from="lore_controls" to="lore_controls" method="_on_pressed"]
+[connection signal="pressed" from="exit" to="exit" method="_on_pressed"]

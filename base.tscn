@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://8e84l17raqpf"]
+
+[ext_resource type="Script" path="res://base.gd" id="1_6cjh2"]
+[ext_resource type="Texture2D" uid="uid://w4640gkjhhar" path="res://art/bubble_king.png" id="2_eyqti"]
+[ext_resource type="AudioStream" uid="uid://csvgxw3noaelg" path="res://art/goblin death.mp3" id="3_rxhf1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yda3r"]
+radius = 56.5685
+
+[node name="Base" type="Area2D" groups=["Tower"]]
+script = ExtResource("1_6cjh2")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.375, 1.375)
+texture = ExtResource("2_eyqti")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_yda3r")
+
+[node name="MobDeath" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_rxhf1")
+volume_db = 10.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

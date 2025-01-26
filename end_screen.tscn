@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://dklng5obkgfky"]
+
+[ext_resource type="Texture2D" uid="uid://5qs36sdwdljh" path="res://art/taust.png" id="1_e34ia"]
+[ext_resource type="Texture2D" uid="uid://c15bgibav16rq" path="res://art/Exit_button.png" id="2_a5shm"]
+[ext_resource type="Script" path="res://endbutton.gd" id="2_ttwsn"]
+[ext_resource type="Script" path="res://button_2.gd" id="3_k255u"]
+[ext_resource type="Texture2D" uid="uid://d6xw07gbvjyj" path="res://art/retry_button.png" id="4_c3jyd"]
+[ext_resource type="AudioStream" uid="uid://ccfc25u0qadds" path="res://art/gameover.wav" id="6_v0vpm"]
+[ext_resource type="AudioStream" uid="uid://5djjds25bkyv" path="res://art/2025-01-26_15-01-46 (online-video-cutter.com).mp3" id="7_75i7u"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_75eoj"]
+texture = ExtResource("1_e34ia")
+
+[node name="end_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="background" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1600.0
+offset_bottom = 900.0
+scale = Vector2(1.0011, 1)
+theme_override_styles/panel = SubResource("StyleBoxTexture_75eoj")
+
+[node name="Button2" type="Button" parent="background"]
+layout_mode = 0
+offset_left = 751.174
+offset_top = 648.0
+offset_right = 859.174
+offset_bottom = 688.0
+scale = Vector2(1.5, 1.5)
+icon = ExtResource("2_a5shm")
+script = ExtResource("3_k255u")
+
+[node name="Button" type="Button" parent="background"]
+layout_mode = 0
+offset_left = 751.174
+offset_top = 320.0
+offset_right = 859.174
+offset_bottom = 360.0
+scale = Vector2(1.5, 1.5)
+icon = ExtResource("4_c3jyd")
+script = ExtResource("2_ttwsn")
+
+[node name="BaseDeath" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_v0vpm")
+volume_db = 10.0
+autoplay = true
+
+[node name="BaseDeath2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_75i7u")
+volume_db = 10.0
+autoplay = true
+
+[connection signal="pressed" from="background/Button2" to="background/Button2" method="_on_pressed"]
+[connection signal="pressed" from="background/Button" to="background/Button" method="_on_pressed"]
