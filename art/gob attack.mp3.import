@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b7eidoye611pk"
+path="res://.godot/imported/gob attack.mp3-59ca4636d19f3c496309dce303bee289.mp3str"
+
+[deps]
+
+source_file="res://art/gob attack.mp3"
+dest_files=["res://.godot/imported/gob attack.mp3-59ca4636d19f3c496309dce303bee289.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

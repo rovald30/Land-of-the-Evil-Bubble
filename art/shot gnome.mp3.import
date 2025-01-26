@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bumcxo65mdv1e"
+path="res://.godot/imported/shot gnome.mp3-4e80a20c64f56e2f21c98dfc62802dcd.mp3str"
+
+[deps]
+
+source_file="res://art/shot gnome.mp3"
+dest_files=["res://.godot/imported/shot gnome.mp3-4e80a20c64f56e2f21c98dfc62802dcd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

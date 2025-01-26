@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b271my6xdgo68"
+path="res://.godot/imported/bad end.mp3-e10a10e76dc4a1164e3b49c9f06a7443.mp3str"
+
+[deps]
+
+source_file="res://art/bad end.mp3"
+dest_files=["res://.godot/imported/bad end.mp3-e10a10e76dc4a1164e3b49c9f06a7443.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

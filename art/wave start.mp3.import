@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cergbe6lid8ur"
+path="res://.godot/imported/wave start.mp3-fa4c63a2f42892cc533f37d00963bf77.mp3str"
+
+[deps]
+
+source_file="res://art/wave start.mp3"
+dest_files=["res://.godot/imported/wave start.mp3-fa4c63a2f42892cc533f37d00963bf77.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
